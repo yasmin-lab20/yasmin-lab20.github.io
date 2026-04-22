@@ -1,373 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LAB20 — Brand × Culture × Creative Partnerships</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAB20 - Brand × Culture × Creative Partnerships</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
-    body {
-      min-height: 100vh;
-      background: #0a0a0a;
-      color: #f5f5f5;
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .bg-radial {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(255,255,255,0.10) 0%, transparent 35%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .page-wrap {
-      position: relative;
-      z-index: 1;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 32px 48px;
-    }
-
-    /* HEADER */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(255,255,255,0.10);
-      padding-bottom: 24px;
-    }
-
-    .header-logo {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      color: #a3a3a3;
-      font-weight: 400;
-    }
-
+    body { background: #0a0a0a; color: #f5f5f5; font-family: Inter, sans-serif; font-weight: 300; }
+    .bg-radial { position: fixed; inset: 0; background: radial-gradient(circle at top, rgba(255,255,255,0.10) 0%, transparent 35%); pointer-events: none; z-index: 0; }
+    .page-wrap { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 32px 48px; }
+    header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.10); padding-bottom: 24px; }
+    .header-logo { font-size: 13px; text-transform: uppercase; letter-spacing: 0.25em; color: #a3a3a3; font-weight: 400; }
     nav { display: flex; gap: 32px; }
     nav a { font-size: 14px; color: #d4d4d4; text-decoration: none; transition: color 0.2s; }
     nav a:hover { color: #fff; }
-
-    /* HERO */
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 48px;
-      padding: 96px 0;
-      align-items: end;
-    }
-
-    .hero-eyebrow {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.35em;
-      color: #a3a3a3;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(40px, 5.5vw, 72px);
-      font-weight: 300;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-      color: #fff;
-      max-width: 700px;
-    }
-
-    .hero-sub {
-      margin-top: 32px;
-      font-size: 18px;
-      line-height: 1.75;
-      color: #d4d4d4;
-      max-width: 640px;
-    }
-
+    .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; padding: 96px 0; align-items: end; }
+    .hero-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.35em; color: #a3a3a3; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(40px, 5.5vw, 72px); font-weight: 300; line-height: 1.08; letter-spacing: -0.02em; color: #fff; max-width: 700px; }
+    .hero-sub { margin-top: 32px; font-size: 18px; line-height: 1.75; color: #d4d4d4; max-width: 640px; }
     .hero-cta { margin-top: 40px; }
-
-    .btn-white {
-      display: inline-block;
-      background: #fff;
-      color: #0a0a0a;
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 9999px;
-      font-size: 14px;
-      font-weight: 500;
-      border: 1px solid #fff;
-      transition: opacity 0.2s;
-    }
+    .btn-white { display: inline-block; background: #fff; color: #0a0a0a; text-decoration: none; padding: 12px 24px; border-radius: 9999px; font-size: 14px; font-weight: 500; border: 1px solid #fff; transition: opacity 0.2s; }
     .btn-white:hover { opacity: 0.88; }
-
-    .hero-card {
-      border-radius: 32px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(8px);
-      overflow: hidden;
-    }
-
-    .hero-card-img {
-      width: 100%;
-      aspect-ratio: 4/5;
-      object-fit: cover;
-      display: block;
-    }
-
-    .hero-card-body { padding: 32px; }
+    .hero-card { border-radius: 32px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); overflow: hidden; display: flex; flex-direction: column; }
+    .hero-card-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; order: 2; }
+    .hero-card-body { padding: 32px; order: 1; }
     .hero-card-body h3 { font-size: 24px; font-weight: 300; color: #fff; line-height: 1.4; margin-bottom: 20px; }
     .hero-card-body p { font-size: 15px; line-height: 1.75; color: #d4d4d4; }
-
-    /* PARTNERS */
-    .partners {
-      border-top: 1px solid rgba(255,255,255,0.10);
-      padding: 40px 0;
-    }
-
-    .section-eyebrow {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.30em;
-      color: #737373;
-      margin-bottom: 24px;
-    }
-
-    .partners-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 16px;
-    }
-
-    .partner-tile {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      padding: 20px 16px;
-      min-height: 72px;
-      font-size: 14px;
-      color: #a3a3a3;
-      letter-spacing: 0.08em;
-    }
-
-    .partner-tile img {
-      max-height: 28px;
-      max-width: 100%;
-      object-fit: contain;
-      opacity: 0.75;
-      filter: brightness(0) invert(1);
-    }
-
-    /* SERVICES */
+    .partners { border-top: 1px solid rgba(255,255,255,0.10); padding: 40px 0; }
+    .section-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.30em; color: #737373; margin-bottom: 24px; }
+    .partners-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+    .partner-tile { display: flex; align-items: center; justify-content: center; border-radius: 16px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.05); padding: 20px 16px; min-height: 72px; font-size: 14px; color: #a3a3a3; letter-spacing: 0.08em; }
+    .partner-tile img { max-height: 28px; max-width: 100%; object-fit: contain; opacity: 0.75; filter: brightness(0) invert(1); }
     .services { padding: 80px 0; }
     .services-header { max-width: 640px; margin-bottom: 48px; }
-    .services-header h2 {
-      margin-top: 16px;
-      font-size: clamp(26px, 3vw, 36px);
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      line-height: 1.25;
-      color: #fff;
-    }
-
+    .services-header h2 { margin-top: 16px; font-size: clamp(26px, 3vw, 36px); font-weight: 300; letter-spacing: -0.02em; line-height: 1.25; color: #fff; }
     .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-
-    .service-card {
-      border-radius: 32px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      padding: 32px;
-    }
+    .service-card { border-radius: 32px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.05); padding: 32px; }
     .service-card h3 { font-size: 22px; font-weight: 300; color: #fff; margin-bottom: 16px; }
     .service-card p { font-size: 15px; line-height: 1.75; color: #d4d4d4; }
-
-    /* WHY */
-    .why {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 32px;
-      border-top: 1px solid rgba(255,255,255,0.10);
-      padding: 80px 0;
-      align-items: start;
-    }
-    .why-left h2 {
-      margin-top: 16px;
-      font-size: clamp(26px, 3vw, 36px);
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      line-height: 1.25;
-      color: #fff;
-    }
+    .why { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 32px; border-top: 1px solid rgba(255,255,255,0.10); padding: 80px 0; align-items: start; }
+    .why-left h2 { margin-top: 16px; font-size: clamp(26px, 3vw, 36px); font-weight: 300; letter-spacing: -0.02em; line-height: 1.25; color: #fff; }
     .why-list { display: flex; flex-direction: column; gap: 16px; }
-    .why-item {
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      padding: 20px;
-      font-size: 15px;
-      color: #e5e5e5;
-      line-height: 1.6;
-    }
-
-    /* SHOWCASE */
+    .why-item { border-radius: 16px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.05); padding: 20px; font-size: 15px; color: #e5e5e5; line-height: 1.6; }
     .showcase { padding: 80px 0; }
     .showcase-header { max-width: 640px; margin-bottom: 48px; }
-    .showcase-header h2 {
-      margin-top: 16px;
-      font-size: clamp(26px, 3vw, 36px);
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      line-height: 1.25;
-      color: #fff;
-    }
-
+    .showcase-header h2 { margin-top: 16px; font-size: clamp(26px, 3vw, 36px); font-weight: 300; letter-spacing: -0.02em; line-height: 1.25; color: #fff; }
     .showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-
-    .case-card {
-      border-radius: 32px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      overflow: hidden;
-      cursor: pointer;
-      text-align: left;
-      width: 100%;
-      transition: border-color 0.3s, background 0.3s;
-    }
+    .case-card { border-radius: 32px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.05); overflow: hidden; cursor: pointer; text-align: left; width: 100%; transition: border-color 0.3s, background 0.3s; }
     .case-card:hover { border-color: rgba(255,255,255,0.30); background: rgba(255,255,255,0.07); }
-
     .case-img-wrap { overflow: hidden; }
-    .case-img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s;
-    }
+    .case-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform 0.5s; }
     .case-card:hover .case-img { transform: scale(1.02); }
-
     .case-body { padding: 32px; }
     .case-body h3 { font-size: 22px; font-weight: 300; color: #fff; margin-bottom: 16px; }
     .case-body p { font-size: 15px; line-height: 1.75; color: #d4d4d4; margin-bottom: 24px; }
     .case-link { font-size: 12px; text-transform: uppercase; letter-spacing: 0.25em; color: #a3a3a3; }
-
-    /* CONTACT */
     .contact { border-top: 1px solid rgba(255,255,255,0.10); padding: 80px 0; }
-
-    .contact-inner {
-      border-radius: 32px;
-      background: #fff;
-      padding: 48px;
-      color: #0a0a0a;
-    }
+    .contact-inner { border-radius: 32px; background: #fff; padding: 48px; color: #0a0a0a; }
     .contact-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.30em; color: #737373; margin-bottom: 16px; }
-    .contact-inner h2 {
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      color: #0a0a0a;
-      max-width: 720px;
-      margin-bottom: 24px;
-    }
+    .contact-inner h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 300; letter-spacing: -0.02em; line-height: 1.15; color: #0a0a0a; max-width: 720px; margin-bottom: 24px; }
     .contact-inner p { font-size: 18px; line-height: 1.75; color: #404040; max-width: 640px; margin-bottom: 32px; }
-
-    .btn-dark {
-      display: inline-block;
-      background: #0a0a0a;
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 9999px;
-      font-size: 14px;
-      font-weight: 500;
-      transition: opacity 0.2s;
-    }
+    .btn-dark { display: inline-block; background: #0a0a0a; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 9999px; font-size: 14px; font-weight: 500; transition: opacity 0.2s; }
     .btn-dark:hover { opacity: 0.85; }
-
-    /* MODAL */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 50;
-      background: rgba(0,0,0,0.80);
-      backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s;
-    }
+    .modal-overlay { position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,0.80); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; padding: 16px; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
     .modal-overlay.active { opacity: 1; pointer-events: all; }
-
-    .modal-box {
-      width: 100%;
-      max-width: 1100px;
-      max-height: 92vh;
-      overflow-y: auto;
-      border-radius: 32px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: #0a0a0a;
-      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
-      transform: translateY(16px);
-      transition: transform 0.25s;
-    }
+    .modal-box { width: 100%; max-width: 1100px; max-height: 92vh; overflow-y: auto; border-radius: 32px; border: 1px solid rgba(255,255,255,0.10); background: #0a0a0a; box-shadow: 0 32px 80px rgba(0,0,0,0.6); transform: translateY(16px); transition: transform 0.25s; }
     .modal-overlay.active .modal-box { transform: translateY(0); }
-
-    .modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(255,255,255,0.10);
-      padding: 24px;
-    }
+    .modal-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.10); padding: 24px; }
     .modal-eyebrow { font-size: 10px; text-transform: uppercase; letter-spacing: 0.30em; color: #737373; margin-bottom: 4px; }
     .modal-short { font-size: 20px; font-weight: 300; color: #fff; }
-
-    .modal-close {
-      background: none;
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 9999px;
-      padding: 8px 16px;
-      font-size: 13px;
-      color: #d4d4d4;
-      cursor: pointer;
-      font-family: inherit;
-      transition: border-color 0.2s, color 0.2s;
-    }
+    .modal-close { background: none; border: 1px solid rgba(255,255,255,0.10); border-radius: 9999px; padding: 8px 16px; font-size: 13px; color: #d4d4d4; cursor: pointer; font-family: inherit; transition: border-color 0.2s, color 0.2s; }
     .modal-close:hover { border-color: rgba(255,255,255,0.30); color: #fff; }
-
     .modal-body { display: grid; grid-template-columns: 1.25fr 0.75fr; }
-
     .modal-images { display: flex; flex-direction: column; gap: 16px; padding: 24px; }
     .modal-images img { width: 100%; border-radius: 12px; object-fit: cover; }
-
-    .modal-logo-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      padding: 16px;
-    }
+    .modal-logo-wrap { display: flex; align-items: center; justify-content: center; border-radius: 12px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.05); padding: 16px; }
     .modal-logo-wrap img { max-height: 48px; object-fit: contain; opacity: 0.85; filter: brightness(0) invert(1); }
-
     .modal-content { padding: 40px; }
     .modal-content h3 { font-size: 28px; font-weight: 300; color: #fff; margin-top: 12px; margin-bottom: 12px; line-height: 1.25; }
     .modal-partner { font-size: 12px; text-transform: uppercase; letter-spacing: 0.25em; color: #737373; margin-bottom: 24px; }
     .modal-details { font-size: 15px; line-height: 1.85; color: #d4d4d4; white-space: pre-line; }
-
-    /* RESPONSIVE */
     @media (max-width: 900px) {
       .page-wrap { padding: 20px 24px; }
       nav { display: none; }
@@ -398,7 +112,6 @@
     </nav>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <div>
       <p class="hero-eyebrow">Brand × Culture × Creative Partnerships</p>
@@ -410,30 +123,26 @@
     </div>
 
     <div class="hero-card">
-      <img class="hero-card-img"
-        https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=80
-        alt="LAB20 cultural moment" />
       <div class="hero-card-body">
         <h3>Boutique. Strategic. Culturally tuned.</h3>
         <p>Designed for brands seeking tasteful, modern, and commercially sharp entry points into culture.</p>
       </div>
+      <img class="hero-card-img" src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=80" alt="LAB20 cultural moment" />
     </div>
   </section>
 
-  <!-- PARTNERS -->
   <section class="partners">
     <p class="section-eyebrow">Previous Partners</p>
     <div class="partners-grid">
-      <div class="partner-tile"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Deutsche_Bank_logo.svg" alt="Deutsche Bank" /></div>
-      <div class="partner-tile">EPS</div>
-      <div class="partner-tile"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Sun_Life_Financial_logo.svg" alt="Sun Life Hong Kong" /></div>
-      <div class="partner-tile"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Benefit_Cosmetics_logo.svg" alt="Benefit Cosmetics" /></div>
-      <div class="partner-tile"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Casio_logo.svg" alt="Casio" /></div>
-      <div class="partner-tile"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Christian_Dior_logo.svg" alt="Dior" /></div>
+      <div class="partner-tile"><img src="https://thebanks.eu/img/logos/DB_Privat_und_Firmenkundenbank.png" alt="Deutsche Bank" /></div>
+      <div class="partner-tile"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Electronic_Payment_Services_logo.svg/1280px-Electronic_Payment_Services_logo.svg.png" alt="EPS" /></div>
+      <div class="partner-tile"><img src="https://www.sunlife.com.hk/content/dam/sunlife/regional/hong-kong/images/logo-sun-life.jpg" alt="Sun Life Hong Kong" /></div>
+      <div class="partner-tile"><img src="https://www.greatplacetowork.co.uk/hs-fs/hubfs/HubDB%20Images/2023%20Company%20Logos/Benefit%20Cosmetics%20LLC_UK1_GB_67e7aa1ff87f472055bd5dbb_logo.webp?width=700&height=250&name=Benefit%20Cosmetics%20LLC_UK1_GB_67e7aa1ff87f472055bd5dbb_logo.webp" alt="Benefit Cosmetics" /></div>
+      <div class="partner-tile"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Casio_logo.svg/960px-Casio_logo.svg.png" alt="Casio" /></div>
+      <div class="partner-tile"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Dior_Logo.svg/1280px-Dior_Logo.svg.png" alt="Dior" /></div>
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section class="services" id="services">
     <div class="services-header">
       <p class="section-eyebrow">What we do</p>
@@ -459,7 +168,6 @@
     </div>
   </section>
 
-  <!-- WHY LAB20 -->
   <section class="why">
     <div class="why-left">
       <p class="section-eyebrow">Why LAB20</p>
@@ -473,7 +181,6 @@
     </div>
   </section>
 
-  <!-- SHOWCASE -->
   <section class="showcase" id="work">
     <div class="showcase-header">
       <p class="section-eyebrow">Selected Showcase</p>
@@ -482,9 +189,7 @@
     <div class="showcase-grid">
       <button class="case-card" onclick="openModal('taeyang')">
         <div class="case-img-wrap">
-          <img class="case-img"
-            src="https://images.unsplash.com/photo-1518972559570-0c5a3c2c7c8a?auto=format&fit=crop&w=800&q=80"
-            alt="Taeyang RISE" />
+          <img class="case-img" src="https://media.licdn.com/dms/image/v2/C562DAQGQSOhPaizHLw/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1596203142413?e=1777485600&v=beta&t=6O8aiFRdOysraBqPjA4sXLNxB2vnieekWMWX9kOkgaM" alt="Taeyang RISE" />
         </div>
         <div class="case-body">
           <h3>Taeyang "RISE" in Hong Kong</h3>
@@ -495,9 +200,7 @@
 
       <button class="case-card" onclick="openModal('bigbang')">
         <div class="case-img-wrap">
-          <img class="case-img"
-            src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1200&q=80"
-            alt="BigBang MADE" />
+          <img class="case-img" src="https://static.timable.com/44d7ee4e133e044fbe5794d4dadf3e163.jpg" alt="BigBang MADE" />
         </div>
         <div class="case-body">
           <h3>BIGBANG World Tour [MADE]</h3>
@@ -508,7 +211,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="contact-inner">
       <p class="contact-eyebrow">Contact</p>
@@ -520,7 +222,6 @@
 
 </div>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="handleOverlay(event)">
   <div class="modal-box" id="modal-box">
     <div class="modal-header">
@@ -553,19 +254,19 @@ const DATA = {
     short: 'Taeyang "RISE" in Hong Kong',
     title: 'Modern Education (HK) Limited presents Taeyang "RISE" in Hong Kong',
     partner: 'Modern Education (HK) Limited',
-    logo: 'https://images.unsplash.com/photo-1518972559570-0c5a3c2c7c8a?auto=format&fit=crop&w=300&q=60',
-    img1: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=80',
-    img2: 'https://images.unsplash.com/photo-1518972559570-0c5a3c2c7c8a?auto=format&fit=crop&w=800&q=80',
+    logo: 'https://media.licdn.com/dms/image/v2/C562DAQGQSOhPaizHLw/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1596203142413?e=1777485600&v=beta&t=6O8aiFRdOysraBqPjA4sXLNxB2vnieekWMWX9kOkgaM',
+    img1: 'https://media.licdn.com/dms/image/v2/C562DAQGQSOhPaizHLw/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1596203142413?e=1777485600&v=beta&t=6O8aiFRdOysraBqPjA4sXLNxB2vnieekWMWX9kOkgaM',
+    img2: '',
     details: `Taeyang, a key member of the globally recognised group Big Bang, launched his first solo world tour 'RISE', marking a major milestone in his individual career. The Hong Kong stop was positioned as a high-demand cultural event, attracting a concentrated fan base with strong purchasing power and brand affinity.\n\nThe campaign included a fan engagement music session designed to create close, face-to-face interaction between selected brand customers and the artist environment. This format strengthened emotional connection, extended brand exposure, and created shareable moments that amplified reach across fan communities.`
   },
   bigbang: {
     short: 'BIGBANG World Tour [MADE]',
     title: 'EPS presents BigBang World Tour [MADE] in Hong Kong',
-    partner: 'EPS',
-    logo: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=300&q=60',
-    img1: 'https://images.unsplash.com/photo-1518972559570-0c5a3c2c7c8a?auto=format&fit=crop&w=900&q=80',
-    img2: 'https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=80',
-    details: `EPS (Entertainment Promotion & Solutions) is a Hong Kong-based concert promoter and event production company specialising in large-scale live entertainment.\n\nThrough the BigBang World Tour [MADE] in Hong Kong, the campaign was structured to increase EPS brand visibility by aligning with one of the most in-demand K-pop groups globally. The event created strong market attention, drove public conversation, and positioned EPS within high-profile entertainment experiences that attract both fans and commercial partners.`
+    partner: 'EPS (Electronic Payment Services)',
+    logo: 'https://static.timable.com/44d7ee4e133e044fbe5794d4dadf3e163.jpg',
+    img1: 'https://static.timable.com/44d7ee4e133e044fbe5794d4dadf3e163.jpg',
+    img2: '',
+    details: `EPS (Electronic Payment Services) sought to increase brand exposure and drive adoption of their payment services among a younger, affluent demographic. By partnering with BIGBANG's World Tour [MADE] in Hong Kong, EPS connected with a highly engaged audience of devoted fans with strong purchasing power.\n\nThe partnership positioned EPS as a modern, culturally-tuned brand while the concert experience created memorable touchpoints that encouraged service trial and loyalty. This strategic alignment elevated EPS brand visibility and drove meaningful customer acquisition through entertainment partnerships.`
   }
 };
 
